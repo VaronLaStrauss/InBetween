@@ -10,10 +10,31 @@ class App extends Component {
   state = {
     score: 0,
     round: 0,
+    card3: null,
+    card1: this.playCard,
+    card2: this.playCard,
   };
 
   render(): ReactNode {
-    const [card1, card2] = this.playCards;
+    const startButton = (
+      <button className="btn btn-primary" onClick={this.startGame.bind(this)}>
+        Start Game
+      </button>
+    );
+    if (this.state.round === 0) {
+      return startButton;
+    } else if (this.state.round === 6) {
+      return (
+        <div className="App">
+          <h1>
+            Game Over!
+            <br />
+            Score: {this.state.score}
+          </h1>
+          {startButton}
+        </div>
+      );
+    }
 
     return (
       <>
@@ -22,10 +43,11 @@ class App extends Component {
           <h2>Round: {this.state.round}</h2>
         </div>
         <div>
-          <CardDeckComponent {...card1} />
-          <CardDeckComponent {...card2} />
+          <CardDeckComponent {...this.state.card1} />
+          <CardDeckComponent {...this.state.card2} />
+          {!!this.state.card3 && <CardDeckComponent {...this.state.card3} />}
         </div>
-        <button className="btn btn-primary">Start Game</button>
+        <div>{this.getActionButtons(this.state.card1, this.state.card2)}</div>
       </>
     );
   }
@@ -38,28 +60,83 @@ class App extends Component {
     });
   }
 
-  get playCards(): [CardDeck, CardDeck] {
-    const card1 = getCardFromDeck(this.availableCards);
-    const list = this.availableCards.get(card1.suit)!.filter((val) => {
-      return val !== card1.cardNumber;
+  nextRound() {
+    this.setState({
+      ...this.state,
+      round: this.state.round + 1,
+      card3: null,
+      card1: this.playCard,
+      card2: this.playCard,
+    });
+  }
+
+  getActionButtons(card1: CardDeck, card2: CardDeck) {
+    if (!!this.state.card3) {
+      return (
+        <button className="btn btn-primary" onClick={this.nextRound.bind(this)}>
+          {this.state.round === 5 ? "End Game" : "Next Round"}
+        </button>
+      );
+    }
+
+    const choices = ["No Deal"];
+    card1.cardNumber === card2.cardNumber
+      ? choices.push("Higher", "Lower")
+      : choices.push("Deal");
+
+    return choices.map((choice, i) => {
+      const key = `${choice}-${i}`;
+      return (
+        <button
+          className="btn btn-primary"
+          onClick={this.handleChoice.bind(this, choice, card1, card2)}
+          key={key}
+        >
+          {choice}
+        </button>
+      );
+    });
+  }
+
+  handleChoice(choice: string, card1: CardDeck, card2: CardDeck) {
+    const card3 = this.playCard;
+    const state = { ...this.state, card3 };
+    if (choice === "No Deal") {
+      return this.setState({ ...state, score: this.state.score - 0.5 });
+    }
+
+    if (card1.cardNumber === card2.cardNumber) {
+      if (
+        (card3.cardNumber > card1.cardNumber && choice === "Higher") ||
+        (card3.cardNumber < card1.cardNumber && choice === "Lower")
+      ) {
+        return this.setState({ ...state, score: this.state.score + 1 });
+      } else {
+        return this.setState({ ...state, score: this.state.score - 1 });
+      }
+    }
+
+    const min = Math.min(card1.cardNumber, card2.cardNumber);
+    const max = Math.max(card1.cardNumber, card2.cardNumber);
+    if (card3.cardNumber > min && card3.cardNumber < max && choice === "Deal") {
+      return this.setState({ ...state, score: this.state.score + 1 });
+    } else {
+      return this.setState({ ...state, score: this.state.score - 1 });
+    }
+  }
+
+  get playCard(): CardDeck {
+    const card = getCardFromDeck(this.availableCards);
+    const list = this.availableCards.get(card.suit)!.filter((val) => {
+      return val !== card.cardNumber;
     });
     if (list.length === 0) {
-      this.availableCards.delete(card1.suit);
+      this.availableCards.delete(card.suit);
     } else {
-      this.availableCards.set(card1.suit, list);
+      this.availableCards.set(card.suit, list);
     }
 
-    const card2 = getCardFromDeck(this.availableCards);
-    const list2 = this.availableCards.get(card2.suit)!.filter((val) => {
-      return val !== card2.cardNumber;
-    });
-    if (list2.length === 0) {
-      this.availableCards.delete(card2.suit);
-    } else {
-      this.availableCards.set(card2.suit, list2);
-    }
-
-    return [card1, card2];
+    return card;
   }
 }
 
