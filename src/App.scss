@@ -1,0 +1,14 @@
+.App {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
+
+  .cards-container {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.8rem, 1fr));
+    gap: 0.8rem;
+    height: fit-content;
+  }
+}

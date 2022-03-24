@@ -5,15 +5,20 @@ import { CARD_BACK } from "../../utils/suite-location";
 import "./CardDeck.scss";
 
 export default class CardDeckComponent extends Component {
-  props: CardDeck;
+  props: CardDeck & {
+    turnable: boolean;
+    clickCard?: (card: CardDeck) => void;
+    selected?: boolean;
+  };
 
-  constructor(props: CardDeck) {
+  constructor(props: any) {
     super(props);
     this.props = props;
   }
 
   render(): ReactNode {
-    const { cardNumber, locations, suit } = this.props;
+    const { cardNumber, locations, suit, turnable, clickCard, selected } =
+      this.props;
     const cardSymbol =
       cardNumber === 1
         ? "A"
@@ -27,29 +32,42 @@ export default class CardDeckComponent extends Component {
     const red = suit === "hearts" || suit === "diamonds" ? "red" : "";
 
     return (
-      <div className="playing-card">
+      <div
+        className={
+          "playing-card" +
+          (turnable ? " hoverable" : " expandable") +
+          (selected === true ? " selected" : "")
+        }
+        onClick={() => {
+          if (!!clickCard) clickCard({ cardNumber, locations, suit });
+        }}
+      >
         <div className="card-inner">
           <div className="card-back">
             <img src={CARD_BACK} alt="the back of the deck of cards" />
           </div>
           <div className="card-front">
-            <div className="suit-container">
-              <div className={"symbol top-left " + red}>
-                <span>{cardSymbol}</span>
-                <img src={SUITE_LOGOS[suit]} alt="the suite of the card" />
-              </div>
-            </div>
+            {turnable && (
+              <>
+                <div className="suit-container">
+                  <div className={"symbol top-left " + red}>
+                    <span>{cardSymbol}</span>
+                    <img src={SUITE_LOGOS[suit]} alt="the suite of the card" />
+                  </div>
+                </div>
 
-            <div className="suits">
-              {this.getSuitLocations(suit, locations)}
-            </div>
+                <div className="suits">
+                  {this.getSuitLocations(suit, locations)}
+                </div>
 
-            <div className="suit-container">
-              <div className={"symbol bottom-right " + red}>
-                <span>{cardSymbol}</span>
-                <img src={SUITE_LOGOS[suit]} alt="the suite of the card" />
-              </div>
-            </div>
+                <div className="suit-container">
+                  <div className={"symbol bottom-right " + red}>
+                    <span>{cardSymbol}</span>
+                    <img src={SUITE_LOGOS[suit]} alt="the suite of the card" />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

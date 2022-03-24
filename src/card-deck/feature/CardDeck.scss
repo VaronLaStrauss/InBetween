@@ -3,7 +3,6 @@
 .playing-card {
   background-color: transparent;
   aspect-ratio: 2.5 / 3.5;
-  max-height: 300px;
   perspective: 1000px;
   font-family: "IBM Plex Serif", serif;
 
@@ -103,9 +102,22 @@
     }
   }
 
-  &:hover {
+  &.hoverable:hover {
     .card-inner {
       transform: rotateY(180deg);
     }
+  }
+
+  &.expandable:not(.selected):hover {
+    z-index: 3;
+    .card-inner {
+      transform: scale(1.2);
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  &.selected {
+    opacity: 0.7;
+    background-color: black;
   }
 }

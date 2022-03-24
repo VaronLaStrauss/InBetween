@@ -1,0 +1,17 @@
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .rule {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .card-draw-sample {
+      display: flex;
+      flex-direction: row;
+      height: 10rem;
+    }
+  }
+}
