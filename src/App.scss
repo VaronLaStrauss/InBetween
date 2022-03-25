@@ -1,38 +1,72 @@
 .App {
-  text-align: center;
-}
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  position: relative;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  .cards-container {
+    padding: 1%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7.8rem, 1fr));
+    gap: 0.8rem;
+    height: fit-content;
+  }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .inGameStatus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .inGame {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding-top: 10px;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 5px rgb(102, 13, 153);
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  .inScore {
+    padding-left: 50px;
+  }
+
+  .inRound {
+    padding-right: 50px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.end-game {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  // background-image: url("images/7.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.end-game-content {
+  color: white;
+  // background-image: url("../src/images/cardgamegif.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  padding: 1rem;
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .gameover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .totalscore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
