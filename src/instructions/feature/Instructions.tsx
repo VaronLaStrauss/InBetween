@@ -1,5 +1,7 @@
 import { BaseSyntheticEvent, Component, ReactNode } from "react";
 import "./Instructions.scss";
+import dealer from "../../assets/background/dealer.png";
+import redCarpet from "../../assets/background/red-carpet.jpg";
 
 export default class Instructions extends Component {
   rounds = 5;
@@ -12,8 +14,14 @@ export default class Instructions extends Component {
 
   render(): ReactNode {
     return (
-      <div className="instructions">
-        <div className="contentMainMenu">
+      <div
+        className="instructions"
+        style={{ backgroundImage: `url("${redCarpet}")` }}
+      >
+        <div
+          className="contentMainMenu"
+          style={{ backgroundImage: `url("${dealer}")` }}
+        >
           <div className="backdrop">
             <h1 className="gameTitle">In Between</h1>
             <ul className="containerChoices">

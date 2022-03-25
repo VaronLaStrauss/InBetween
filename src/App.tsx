@@ -6,7 +6,8 @@ import Instructions from "./instructions/feature/Instructions";
 import SelectedCards from "./selected-cards/feature/SelectedCards";
 import { CardDeck } from "./types/card-deck";
 import { getNewDeck, shuffleDeck } from "./utils/get-deck";
-
+import endGameGif from "./assets/background/cardgamegif.gif";
+import seven from "./assets/background/7.jpg";
 export default class App extends Component {
   shuffledDeck!: CardDeck[];
   usedCards!: Set<number>;
@@ -73,8 +74,14 @@ export default class App extends Component {
     if (this.state.endGame) {
       return (
         <div className="App">
-          <div className="end-game">
-            <div className="end-game-content">
+          <div
+            className="end-game"
+            style={{ backgroundImage: `url("${seven}")` }}
+          >
+            <div
+              className="end-game-content"
+              style={{ backgroundImage: `url("${endGameGif}")` }}
+            >
               <h1 className="gameover">Game Over</h1>
               <h2 className="totalscore">Your score: {this.state.score}</h2>
               <button
