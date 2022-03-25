@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/InBetween/static/css/main.f7c4f242.css",
+    "main.js": "/InBetween/static/js/main.ba4f66e7.js",
+    "static/js/787.5efce09b.chunk.js": "/InBetween/static/js/787.5efce09b.chunk.js",
+    "static/media/table-carpet.png": "/InBetween/static/media/table-carpet.41ab14e5e96172430745.png",
+    "static/media/cardgamegif.gif": "/InBetween/static/media/cardgamegif.7a1bc2cd7a7a6df874e6.gif",
+    "static/media/card-back.png": "/InBetween/static/media/card-back.7467243b73f3b6b8ffdb.png",
+    "static/media/7.jpg": "/InBetween/static/media/7.b36d8781b20adbfa762b.jpg",
+    "static/media/red-carpet.jpg": "/InBetween/static/media/red-carpet.cf5b01e60672982fb9b5.jpg",
+    "static/media/queen-crown.png": "/InBetween/static/media/queen-crown.9bb8d46853a1d1a3b967.png",
+    "static/media/jack-symbol.png": "/InBetween/static/media/jack-symbol.c9b9b5c4b410e74c2be8.png",
+    "static/media/king-crown.png": "/InBetween/static/media/king-crown.bdf808ec10ec15dd3de2.png",
+    "static/media/hearts.png": "/InBetween/static/media/hearts.cefa6d616c510b0f139c.png",
+    "static/media/clubs.png": "/InBetween/static/media/clubs.28f59655730638a90e29.png",
+    "static/media/spades.png": "/InBetween/static/media/spades.6d34d78987fe51ab0b5d.png",
+    "static/media/dealer.png": "/InBetween/static/media/dealer.4af5e71a6539ebe4846e.png",
+    "static/media/diamonds.png": "/InBetween/static/media/diamonds.4f8b234c9a23877d31c1.png",
+    "index.html": "/InBetween/index.html",
+    "main.f7c4f242.css.map": "/InBetween/static/css/main.f7c4f242.css.map",
+    "main.ba4f66e7.js.map": "/InBetween/static/js/main.ba4f66e7.js.map",
+    "787.5efce09b.chunk.js.map": "/InBetween/static/js/787.5efce09b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7c4f242.css",
+    "static/js/main.ba4f66e7.js"
+  ]
+}
