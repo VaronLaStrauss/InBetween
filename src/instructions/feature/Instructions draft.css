@@ -1,0 +1,112 @@
+.gameTitle {
+    color:aliceblue;
+    text-shadow: 2px 2px 5px blueviolet;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.containerMainMenu {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/red-carpet.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.contentMainMenu {
+    background-image: url("images/cardgamegif.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.containerChoices{
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    padding-bottom:20px;
+    padding-top:10px;
+}
+
+.inGameBackGround {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/red-carpet.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.statusContainer {
+    padding-right:50px;
+}
+
+.inGameStatus {
+    background-color:#45B39D;
+    border-radius: 10px;
+    color:blanchedalmond;
+    text-shadow: 2px 2px 5px rgb(102, 13, 153);
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.currentScore {
+    text-shadow: 2px 2px 5px blueviolet;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.currentRound {
+    text-shadow: 2px 2px 5px blueviolet;
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.inGameComponents {
+    padding-right:50px;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.inGameActionBtns{
+    display:grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    padding-bottom:20px;
+    padding-top:10px;
+}
+
+.htpMainMenu {
+    color:azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.viany {
+    background-image: url("images/viany.gif");
+    background-repeat: no-repeat;
+    height: 112px;
+    
+}
+
+.pogs {
+    background-image: url("images/pogs.gif");
+    background-repeat: no-repeat;
+    height: 112px;
+    width: 112px;
+}
+
+.App {
+    background-image: url("images/gameover.gif");
+}

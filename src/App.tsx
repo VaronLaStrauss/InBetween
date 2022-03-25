@@ -35,6 +35,13 @@ export default class App extends Component {
           }}
           className="App"
         >
+          <div className="inGameStatus">
+            <table className="inGame">
+            <h1 className="inRound">Round: {this.state.round +1}</h1>
+            <h1 className="inScore">Score: {this.state.score}</h1>
+            </table>
+          </div>
+
           <div className="cards-container">
             {this.shuffledDeck.map((cardDeck, i) => {
               const key = `field-card-${i}`;
@@ -50,6 +57,7 @@ export default class App extends Component {
               );
             })}
           </div>
+
           <SelectedCards
             full={this.state.selectedCards.length > 1}
             cards={this.state.selectedCards}
@@ -65,14 +73,16 @@ export default class App extends Component {
       return (
         <div className="App">
           <div className="end-game">
-            <h1>Game Over</h1>
-            <h2>Your score: {this.state.score}</h2>
-            <button
-              className="btn btn-primary"
-              onClick={this.startGame.bind(this, 0)}
-            >
-              Restart
-            </button>
+            <div className="end-game-content">
+              <h1 className="gameover">Game Over</h1>
+              <h2 className="totalscore">Your score: {this.state.score}</h2>
+              <button
+                className="btn btn-primary"
+                onClick={this.startGame.bind(this, 0)}
+              >
+                Restart
+              </button>
+            </div>
           </div>
         </div>
       );
