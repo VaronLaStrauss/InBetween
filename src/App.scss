@@ -17,24 +17,24 @@
     align-items: center;
     justify-content: center;
   }
-    .inGame {
-      display:grid;
-      grid-template-columns: repeat(2, auto);
-      padding-top:10px;
-      color:blanchedalmond;
-      text-shadow: 2px 2px 5px rgb(102, 13, 153);
-      font-family: "Lucida Console", "Courier New", monospace;
-      font-weight: bold;
-      font-style: italic;
-      }
+  .inGame {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    padding-top: 10px;
+    color: blanchedalmond;
+    text-shadow: 2px 2px 5px rgb(102, 13, 153);
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    font-style: italic;
+  }
 
-      .inScore {
-        padding-left:50px;
-      }
+  .inScore {
+    padding-left: 50px;
+  }
 
-      .inRound {
-        padding-right:50px;
-      }
+  .inRound {
+    padding-right: 50px;
+  }
 }
 
 .end-game {
@@ -53,6 +53,10 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 
   .gameover {
     display: flex;
@@ -65,5 +69,4 @@
     align-items: center;
     justify-content: center;
   }
-
 }

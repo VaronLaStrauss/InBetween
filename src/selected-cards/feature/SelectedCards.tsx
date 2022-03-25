@@ -9,6 +9,7 @@ export default class SelectedCards extends Component {
     full: boolean;
     handleChoice: (choice: string) => void;
     round: number;
+    maxRound: number;
     nextRound: () => void;
   };
 
@@ -37,7 +38,7 @@ export default class SelectedCards extends Component {
     if (!!card3) {
       return (
         <button className="btn btn-primary" onClick={this.props.nextRound}>
-          {round === 4 ? "End Game" : "Next Round"}
+          {round === this.props.maxRound - 1 ? "End Game" : "Next Round"}
         </button>
       );
     }

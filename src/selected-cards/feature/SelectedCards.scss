@@ -15,6 +15,14 @@
   align-content: center;
   flex-wrap: wrap;
 
+  .selected-options {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 10rem;
+    gap: 1rem;
+    justify-content: center;
+  }
+
   &.full {
     height: 100%;
     width: 100%;

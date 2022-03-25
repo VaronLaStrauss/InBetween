@@ -36,10 +36,10 @@ export default class App extends Component {
           className="App"
         >
           <div className="inGameStatus">
-            <table className="inGame">
-            <h1 className="inRound">Round: {this.state.round +1}</h1>
-            <h1 className="inScore">Score: {this.state.score}</h1>
-            </table>
+            <div className="inGame">
+              <h1 className="inRound">Round: {this.state.round + 1}</h1>
+              <h1 className="inScore">Score: {this.state.score}</h1>
+            </div>
           </div>
 
           <div className="cards-container">
@@ -64,6 +64,7 @@ export default class App extends Component {
             handleChoice={this.handleChoice.bind(this)}
             round={this.state.round}
             nextRound={this.nextRound.bind(this)}
+            maxRound={this.state.maxRounds}
           />
         </div>
       );
